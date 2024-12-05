@@ -13,11 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.contentProcessor = void 0;
-const globby_1 = require("globby");
+const globby_1 = __importDefault(require("globby"));
 const promises_1 = __importDefault(require("fs/promises"));
 const contentProcessor = (options) => __awaiter(void 0, void 0, void 0, function* () {
     const ignoreFiles = options.ignoreFiles.split(",").map((item) => `!${item}`);
-    const files = yield (0, globby_1.globby)(["**/*", ...ignoreFiles]);
+    const files = yield (0, globby_1.default)(["**/*", ...ignoreFiles]);
     const filesContent = {};
     for (const file of files) {
         const fileContent = yield promises_1.default.readFile(file);

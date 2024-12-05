@@ -1,6 +1,6 @@
 {
   "name": "readme.ai",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "description": "",
   "dependencies": {
     "commander": "^12.1.0",
-    "globby": "^14.0.2",
+    "globby": "11.0.4",
     "openai": "^4.75.0"
   },
   "devDependencies": {

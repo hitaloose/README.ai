@@ -1,19 +1,17 @@
-# README.ai
+# readme.ai
 
-## Overview
-
-**README.ai** is a CLI tool that leverages OpenAI's GPT-based models to generate professional and modern README files for projects. By analyzing project files and configurations, it provides an AI-powered solution to streamline documentation creation.
+`readme.ai` is a CLI tool designed to automate the generation of professional and modern `README.md` files for your projects. By leveraging the power of OpenAI models, `readme.ai` generates high-quality documentation tailored to your project's structure and content.
 
 ## Features
 
-- **File Content Processing**: Scans and processes project files, excluding ignored files, to construct contextual prompts.
-- **AI Integration**: Uses OpenAI’s API to generate detailed and polished README files.
-- **Customizable Output**: Allows users to specify output filenames and options for raw or processed content.
-- **Flexible File Ignoring**: Customizable file ignore patterns to tailor processing.
+- **AI-Generated Content**: Uses OpenAI's GPT models to create professional documentation.
+- **Customizable Output**: Specify output file names and formats.
+- **File Filtering**: Easily exclude files or directories from being processed.
+- **Raw Output Option**: Obtain raw AI-generated content for further manual integration.
 
 ## Installation
 
-To install the project and its dependencies, clone the repository and run:
+Clone this repository and install the dependencies:
 
 ```bash
 npm install
@@ -21,100 +19,100 @@ npm install
 
 ## Usage
 
-### CLI Options
-
-The CLI offers several options to customize the behavior of the tool:
+Run the CLI tool using the following command:
 
 ```bash
-Usage: readme.ai [options]
-
-Options:
-  -o, --output <type>         Specifies the output file name (default: `README.md`)
-  -t, --openai-token <type>   Provide an OpenAI API token for AI-assisted README generation
-  -m, --openai-model <type>   Specify the OpenAI model (default: `gpt-4`)
-  -r, --output-raw-chat       Outputs raw chat content for manual integration (default: `false`)
-  -i, --ignore-files <list>   Files to ignore (default: `node_modules/**,package-lock.json,dist/**`)
-  -h, --help                  Display help for command
+npm start -- [options]
 ```
 
-### Example Usage
+### Options
 
-Generate a README file for your project with the following command:
+- `-o, --output <type>`: Specifies the output file name (default: `README.md`).
+- `-t, --openai-token <type>`: Provide an OpenAI API token for AI-assisted README generation.
+- `-m, --openai-model <type>`: Specify the OpenAI model to use (default: `gpt-4`).
+- `-r, --output-raw-chat`: Outputs raw chat content for manual integration (default: `false`).
+- `-i, --ignore-files <ignoreFiles>`: Files or directories to ignore during processing (default: `node_modules/**,package-lock.json,dist/**,README.md`).
+
+## Example
+
+Generate a README file for your project:
 
 ```bash
-npx readme.ai -t YOUR_OPENAI_API_TOKEN
+npm start -- -t YOUR_OPENAI_API_KEY -m gpt-4
 ```
 
-### Customization Example
-
-Specify a custom output filename and model:
+Specify a custom output file name:
 
 ```bash
-npx readme.ai -o MyCustomReadme.md -t YOUR_OPENAI_API_TOKEN -m gpt-3.5-turbo
+npm start -- -o CustomREADME.md -t YOUR_OPENAI_API_KEY
+```
+
+Ignore specific files or directories:
+
+```bash
+npm start -- -i "node_modules/**,dist/**"
 ```
 
 ## Project Structure
 
-The project is structured as follows:
-
-```
-readme.ai
-├── package.json            # Project metadata and dependencies
-├── tsconfig.json           # TypeScript configuration
-├── src
-│   ├── content-processor.ts  # Processes project files and prepares content for AI
-│   ├── index.ts              # CLI entry point
-│   ├── option-values.ts      # Defines CLI option types
-│   └── output-processor.ts   # Processes OpenAI's output and handles errors
-```
-
-## How It Works
-
-1. **File Scanning**: The tool scans project files using `globby`, excluding files specified in the `--ignore-files` option.
-2. **Content Processing**: Processes file contents into a cohesive input for OpenAI's API.
-3. **AI-Assisted Generation**: Interacts with OpenAI to create a professional README based on the project context.
-4. **Output Handling**: Saves the generated README to the specified output file.
-
-## Dependencies
-
-This project relies on the following packages:
-
-- [`commander`](https://www.npmjs.com/package/commander): CLI option parsing
-- [`globby`](https://www.npmjs.com/package/globby): File matching and globbing utility
-- [`openai`](https://www.npmjs.com/package/openai): API client for OpenAI
-- [`typescript`](https://www.npmjs.com/package/typescript): TypeScript support for robust development
-- [`tsx`](https://www.npmjs.com/package/tsx): TypeScript execution
+- **`package.json`**: Defines project metadata, dependencies, and scripts.
+- **`tsconfig.json`**: Configures TypeScript compilation options.
+- **`src/content-processor.ts`**: Handles file discovery and content aggregation.
+- **`src/index.ts`**: Entry point for the CLI tool.
+- **`src/option-values.ts`**: Defines the structure of CLI options.
+- **`src/output-processor.ts`**: Manages AI interaction and output generation.
 
 ## Development
 
-### Build
+### Prerequisites
 
-To compile the TypeScript source code, run:
+Ensure you have the following installed:
+
+- Node.js
+- npm
+
+### Build the Project
+
+Compile the TypeScript files to JavaScript:
 
 ```bash
 npm run build
 ```
 
-### Run Locally
+### Run in Development Mode
 
-To run the project locally without building:
+Execute the CLI tool without building:
 
 ```bash
-npm run start
+npm start
 ```
 
-### Testing
+## Dependencies
 
-Ensure all required dependencies and configurations are in place before testing.
+- [commander](https://www.npmjs.com/package/commander): CLI option parsing.
+- [globby](https://www.npmjs.com/package/globby): File matching utility.
+- [openai](https://www.npmjs.com/package/openai): Interact with OpenAI's API.
+
+### Dev Dependencies
+
+- [@types/node](https://www.npmjs.com/package/@types/node): Type definitions for Node.js.
+- [tsx](https://www.npmjs.com/package/tsx): Run TypeScript files directly.
+- [typescript](https://www.npmjs.com/package/typescript): TypeScript compiler.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
 
 ## License
 
-This project is licensed under the **ISC License**.
-
-## Contributions
-
-Contributions are welcome! Please open an issue or submit a pull request for any bug fixes, feature requests, or improvements.
+This project is licensed under the ISC License.
 
 ## Author
 
-Developed by [Your Name].
+`readme.ai` is created and maintained by Hitalo Loose.
+
+---
+
+### Disclaimer
+
+Ensure your OpenAI API token is handled securely and not exposed in public repositories or logs.

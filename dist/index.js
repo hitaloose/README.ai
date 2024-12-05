@@ -24,13 +24,12 @@ program
     .option("-t, --openai-token <type>", "Provide an OpenAI API token for AI-assisted README generation")
     .option("-m, --openai-model <type>", "Provide an OpenAI model", "gpt-4")
     .option("-r, --output-raw-chat", "Outputs raw chat content for manual integration", false)
-    .option("-i, --ignore-files <ignoreFiles>", "Files to scan ignore", "node_modules/**,package-lock.json,dist/**")
+    .option("-i, --ignore-files <ignoreFiles>", "Files to scan ignore", "node_modules/**,package-lock.json,dist/**,README.md")
     .parse(process.argv);
 const options = program.opts();
 function generateReadme() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            console.log(options);
             const content = yield (0, content_processor_1.contentProcessor)(options);
             const output = yield (0, output_processor_1.outputProcessor)(content, options);
             yield promises_1.default.writeFile(options.output, output);
@@ -38,6 +37,7 @@ function generateReadme() {
         }
         catch (error) {
             console.error("Error generating README:");
+            console.error(error);
         }
     });
 }
