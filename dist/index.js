@@ -14,9 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const commander_1 = require("commander");
-const content_processor_1 = require("content-processor");
 const promises_1 = __importDefault(require("fs/promises"));
-const output_processor_1 = require("output-processor");
+const content_processor_1 = require("./content-processor");
+const output_processor_1 = require("./output-processor");
 const program = new commander_1.Command();
 program
     .version("1.0.0")

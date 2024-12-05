@@ -1,5 +1,6 @@
 import OpenAI from "openai";
-import { type OptionValues } from "option-values";
+
+import { type OptionValues } from "./option-values";
 
 export const outputProcessor = async (content: string, options: OptionValues) => {
   if (options.outputRawChat) {

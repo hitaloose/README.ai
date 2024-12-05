@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { contentProcessor } from "content-processor";
 import fs from "fs/promises";
-import { type OptionValues } from "option-values";
-import { outputProcessor } from "output-processor";
+
+import { contentProcessor } from "./content-processor";
+import { type OptionValues } from "./option-values";
+import { outputProcessor } from "./output-processor";
 
 const program = new Command();
 
