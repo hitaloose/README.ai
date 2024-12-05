@@ -1,9 +1,8 @@
 {
   "name": "readme.ai",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "bin": "dist/index.js",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "start": "tsx src/index.ts"
